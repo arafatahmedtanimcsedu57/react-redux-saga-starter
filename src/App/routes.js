@@ -1,23 +1,30 @@
 import Github from '../Github';
-import Auth from '../Auth'
+import Auth from '../Auth';
+import User from '../User/index';
 
 const routes = [
   {
     name: 'github.repos',
     path: '/',
     component: Github,
-    exact: true
+    exact: true,
   },
   {
     name: 'signin',
     path: '/signin',
     component: Auth,
-    exact: true
-  }
+    exact: true,
+  },
+  {
+    name: 'users',
+    path: '/users',
+    component: User,
+    exact: true,
+  },
 ];
 
 function routePath(name, args = null) {
-  let route = routes.find(route => route.name === name);
+  let route = routes.find((route) => route.name === name);
 
   if (route === undefined) return '';
   if (args === null) return route.path;
